@@ -14,11 +14,18 @@ class FunWithFlagsPage extends StatelessWidget {
             flag: Stack(
               children: [
                 Expanded(child: Container(color: Colors.white)),
-                Expanded(child: Container(margin: EdgeInsets.all(50), decoration: BoxDecoration(color: Colors.red, shape: BoxShape.circle))),
-                
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.all(50),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
               ],
             ),
-          ),                 
+          ),
         ],
       ),
     );
