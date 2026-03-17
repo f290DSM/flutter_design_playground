@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_design_playground/src/pages/fun_with_flags.dart';
+import 'package:flutter_design_playground/src/pages/widgets/grid_flag_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,9 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home Page'),
-      ),
+      appBar: AppBar(title: Text('Home Page')),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: .center,
@@ -30,7 +29,15 @@ class HomePage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32),
-            child: FilledButton(onPressed: () {}, child: Text('Design Grig')),
+            child: FilledButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => GridFlagPage()),
+                );
+              },
+              child: Text('Design Grig'),
+            ),
           ),
         ],
       ),
