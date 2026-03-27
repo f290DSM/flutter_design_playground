@@ -33,6 +33,7 @@ class HomePage extends StatelessWidget {
           SizedBox(width: double.maxFinite),
           CustomButton(label: 'Fun With Flags', destination: '/fun-with-flags'),
           CustomButton(label: 'Design Grid', destination: '/design-grid'),
+          CustomButton(label: 'Input Forms', destination: '/input-form'),
         ],
       ),
     );
