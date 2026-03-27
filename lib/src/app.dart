@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_design_playground/src/pages/fun_with_flags.dart';
 import 'package:flutter_design_playground/src/pages/home_page.dart';
+import 'package:flutter_design_playground/src/pages/widgets/grid_flag_page.dart';
 
 // Stateless Widget
 class App extends StatelessWidget {
@@ -12,7 +14,12 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Design Playground',
       theme: ThemeData(colorSchemeSeed: Colors.red, brightness: Brightness.dark),
-      home: HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePage(),
+        '/fun-with-flags': (context) => FunWithFlagsPage(),
+        '/design-grid': (context) => GridFlagPage(),
+      },
     );
   }
 }
