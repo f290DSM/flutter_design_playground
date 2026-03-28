@@ -14,7 +14,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Design Playground',
-      theme: ThemeData(colorSchemeSeed: Colors.red, brightness: Brightness.dark),
+      theme: ThemeData(colorSchemeSeed: Colors.red, brightness: Brightness.light),
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
