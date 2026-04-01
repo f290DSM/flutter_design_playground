@@ -47,6 +47,9 @@ class ProductsPage extends StatelessWidget {
                   ),
                   title: Text(product.title),
                   subtitle: Text(product.brand),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/product-detail', arguments: product);
+                  },
                 ),
               );
             },
