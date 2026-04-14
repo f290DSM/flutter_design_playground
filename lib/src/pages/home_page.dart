@@ -35,6 +35,7 @@ class HomePage extends StatelessWidget {
           CustomButton(label: 'Design Grid', destination: '/design-grid'),
           CustomButton(label: 'Input Forms', destination: '/input-form'),
           CustomButton(label: 'Products', destination: '/products'),
+          CustomButton(label: 'Recipes', destination: '/recipes'),
         ],
       ),
     );

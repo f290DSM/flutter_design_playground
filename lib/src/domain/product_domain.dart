@@ -43,7 +43,7 @@ class ProductDomain {
     };
   }
 
-  factory ProductDomain.fromMap(Map<String, dynamic> map) {
+  factory ProductDomain.fromJson(Map<String, dynamic> map) {
     return ProductDomain(
       id: map['id']?.toInt() ?? 0,
       title: map['title'] ?? '',
@@ -54,13 +54,11 @@ class ProductDomain {
       category: map['category'] ?? '',
       thumbnail: map['thumbnail'] ?? '',
       images: List<String>.from(map['images']),
-      reviews: List<ReviewDomain>.from(map['reviews']?.map((x) => ReviewDomain.fromMap(x))),
+      reviews: List<ReviewDomain>.from(map['reviews']?.map((x) => ReviewDomain.fromJson(x))),
     );
   }
 
   String toJson() => json.encode(toMap());
-
-  factory ProductDomain.fromJson(String source) => ProductDomain.fromMap(json.decode(source));
 }
 
 /**

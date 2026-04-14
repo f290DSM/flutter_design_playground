@@ -46,7 +46,7 @@ class ProductsPage extends StatelessWidget {
                     backgroundImage: NetworkImage(product.thumbnail),
                   ),
                   title: Text(product.title),
-                  subtitle: Text(product.brand),
+                  subtitle: Text(product.brand ?? ''),
                   onTap: () {
                     Navigator.pushNamed(context, '/product-detail', arguments: product);
                   },

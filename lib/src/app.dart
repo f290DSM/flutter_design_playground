@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_design_playground/src/features/recipes/presentation/recipes_tag.dart';
 import 'package:flutter_design_playground/src/pages/fun_with_flags.dart';
 import 'package:flutter_design_playground/src/pages/home_page.dart';
 import 'package:flutter_design_playground/src/pages/input_form_page.dart';
@@ -27,6 +28,7 @@ class App extends StatelessWidget {
         '/products': (context) => ProductCategoryPage(),
         '/products-category': (context) => ProductsPage(),
         '/product-detail': (context) => ProductDetail(),
+        '/recipes': (context) => RecipesTag(),
       },
     );
   }

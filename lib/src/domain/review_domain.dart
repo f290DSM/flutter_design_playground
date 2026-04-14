@@ -22,7 +22,7 @@ class ReviewDomain {
     };
   }
 
-  factory ReviewDomain.fromMap(Map<String, dynamic> map) {
+  factory ReviewDomain.fromJson(Map<String, dynamic> map) {
     return ReviewDomain(
       reviewerName: map['reviewerName'] ?? '',
       reviewerEmail: map['reviewerEmail'] ?? '',
@@ -33,5 +33,4 @@ class ReviewDomain {
 
   String toJson() => json.encode(toMap());
 
-  factory ReviewDomain.fromJson(String source) => ReviewDomain.fromMap(json.decode(source));
 }
