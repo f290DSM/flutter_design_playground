@@ -1,26 +1,66 @@
+import 'dart:convert';
+import 'dart:core';
+
 import 'package:flutter_design_playground/src/domain/review_domain.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'product_domain.freezed.dart';
-part 'product_domain.g.dart'; 
+class ProductDomain {
+  final int id;
+  final String title;
+  final String description;
+  final String sku;
+  final double price;
+  String? brand;
+  final String category;
+  final String thumbnail;
+  final List<String> images;
+  final List<ReviewDomain> reviews;
+  
+  ProductDomain({
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.sku,
+    required this.price,
+    this.brand,
+    required this.category,
+    required this.thumbnail,
+    required this.images,
+    required this.reviews,
+  });
 
-@freezed  
-abstract class ProductDomain with _$ProductDomain {
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'description': description,
+      'sku': sku,
+      'price': price,
+      'brand': brand,
+      'category': category,
+      'thumbnail': thumbnail,
+      'images': images,
+      'reviews': reviews.map((x) => x.toMap()).toList(),
+    };
+  }
 
-  factory ProductDomain({
-    required int id,
-    required String title   ,
-    required String description,
-    required String sku,
-    required double price,
-    String? brand,
-    required String category,
-    required String thumbnail,
-    required List<String>images,
-    required List<ReviewDomain> reviews,
-  }) = _ProductDomain;
+  factory ProductDomain.fromMap(Map<String, dynamic> map) {
+    return ProductDomain(
+      id: map['id']?.toInt() ?? 0,
+      title: map['title'] ?? '',
+      description: map['description'] ?? '',
+      sku: map['sku'] ?? '',
+      price: map['price']?.toDouble() ?? 0.0,
+      brand: map['brand'],
+      category: map['category'] ?? '',
+      thumbnail: map['thumbnail'] ?? '',
+      images: List<String>.from(map['images']),
+      reviews: List<ReviewDomain>.from(map['reviews']?.map((x) => ReviewDomain.fromMap(x))),
+    );
+  }
 
-  factory ProductDomain.fromJson(Map<String, dynamic> json) => _$ProductDomainFromJson(json);
+  String toJson() => json.encode(toMap());
+
+  factory ProductDomain.fromJson(String source) => ProductDomain.fromMap(json.decode(source));
 }
 
 /**

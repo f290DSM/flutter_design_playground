@@ -1,16 +1,37 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'dart:convert';
 
-part 'review_domain.freezed.dart';
-part 'review_domain.g.dart';
+class ReviewDomain {
+    final String reviewerName;
+    final String reviewerEmail;
+    final String comment;
+    final int rating;
+    
+  ReviewDomain({
+    required this.reviewerName,
+    required this.reviewerEmail,
+    required this.comment,
+    required this.rating,
+  });
 
-@freezed
-abstract class ReviewDomain with _$ReviewDomain {
-  factory ReviewDomain({
-    required String reviewerName,
-    required String reviewerEmail,
-    required String comment,
-    required int rating,
-  }) = _ReviewDomain;
+  Map<String, dynamic> toMap() {
+    return {
+      'reviewerName': reviewerName,
+      'reviewerEmail': reviewerEmail,
+      'comment': comment,
+      'rating': rating,
+    };
+  }
 
-  factory ReviewDomain.fromJson(Map<String, dynamic> json) => _$ReviewDomainFromJson(json);
+  factory ReviewDomain.fromMap(Map<String, dynamic> map) {
+    return ReviewDomain(
+      reviewerName: map['reviewerName'] ?? '',
+      reviewerEmail: map['reviewerEmail'] ?? '',
+      comment: map['comment'] ?? '',
+      rating: map['rating']?.toInt() ?? 0,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory ReviewDomain.fromJson(String source) => ReviewDomain.fromMap(json.decode(source));
 }
