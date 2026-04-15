@@ -9,44 +9,43 @@ part of 'products_categories_page.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(productsCategories)
-final productsCategoriesProvider = ProductsCategoriesProvider._();
+@ProviderFor(category)
+final categoryProvider = CategoryProvider._();
 
-final class ProductsCategoriesProvider
+final class CategoryProvider
     extends
         $FunctionalProvider<
-          AsyncValue<List<ProductDomain>>,
-          List<ProductDomain>,
-          FutureOr<List<ProductDomain>>
+          AsyncValue<List<CategoryDomain>>,
+          List<CategoryDomain>,
+          FutureOr<List<CategoryDomain>>
         >
     with
-        $FutureModifier<List<ProductDomain>>,
-        $FutureProvider<List<ProductDomain>> {
-  ProductsCategoriesProvider._()
+        $FutureModifier<List<CategoryDomain>>,
+        $FutureProvider<List<CategoryDomain>> {
+  CategoryProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'productsCategoriesProvider',
+        name: r'categoryProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$productsCategoriesHash();
+  String debugGetCreateSourceHash() => _$categoryHash();
 
   @$internal
   @override
-  $FutureProviderElement<List<ProductDomain>> $createElement(
+  $FutureProviderElement<List<CategoryDomain>> $createElement(
     $ProviderPointer pointer,
   ) => $FutureProviderElement(pointer);
 
   @override
-  FutureOr<List<ProductDomain>> create(Ref ref) {
-    return productsCategories(ref);
+  FutureOr<List<CategoryDomain>> create(Ref ref) {
+    return category(ref);
   }
 }
 
-String _$productsCategoriesHash() =>
-    r'61e595c2a6761c4dca4702a03633c18b37eec6fe';
+String _$categoryHash() => r'f78b856b654a87d795a3c988720a4ad55a623643';
