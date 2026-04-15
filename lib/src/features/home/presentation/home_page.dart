@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_design_playground/src/pages/fun_with_flags.dart';
-import 'package:flutter_design_playground/src/pages/widgets/custom_button.dart';
-import 'package:flutter_design_playground/src/pages/widgets/grid_flag_page.dart';
+import 'package:flutter_design_playground/src/features/others/presentation/fun_with_flags.dart';
+import 'package:flutter_design_playground/src/features/others/presentation/widgets/custom_button.dart';
+import 'package:flutter_design_playground/src/features/others/presentation/widgets/grid_flag_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

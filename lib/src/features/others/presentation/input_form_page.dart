@@ -1,6 +1,6 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_design_playground/src/pages/widgets/forum_card_widget.dart';
+import 'package:flutter_design_playground/src/features/others/presentation/widgets/forum_card_widget.dart';
 
 class InputFormPage extends StatefulWidget {
   const InputFormPage({super.key});

@@ -11,9 +11,11 @@ dependencies:
   faker: ^2.2.0
   flutter:
     sdk: flutter
+  flutter_riverpod: ^3.3.1
   freezed_annotation: ^3.1.0
   http: ^1.6.0
   json_annotation: ^4.11.0
+  riverpod_annotation: ^4.0.2
 
 dev_dependencies:
   flutter_test:

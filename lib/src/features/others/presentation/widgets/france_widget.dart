@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_design_playground/src/pages/widgets/base_flag_widget.dart';
+import 'package:flutter_design_playground/src/features/others/presentation/widgets/base_flag_widget.dart';
 
 class FranceWidget extends StatelessWidget {
   const FranceWidget({super.key});

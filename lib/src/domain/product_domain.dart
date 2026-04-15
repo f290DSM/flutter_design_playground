@@ -1,8 +1,9 @@
-import 'dart:convert';
-import 'dart:core';
-
 import 'package:flutter_design_playground/src/domain/review_domain.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'product_domain.g.dart';
+
+@JsonSerializable(createToJson: false)
 class ProductDomain {
   final int id;
   final String title;
@@ -28,37 +29,8 @@ class ProductDomain {
     required this.reviews,
   });
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'title': title,
-      'description': description,
-      'sku': sku,
-      'price': price,
-      'brand': brand,
-      'category': category,
-      'thumbnail': thumbnail,
-      'images': images,
-      'reviews': reviews.map((x) => x.toMap()).toList(),
-    };
-  }
-
-  factory ProductDomain.fromJson(Map<String, dynamic> map) {
-    return ProductDomain(
-      id: map['id']?.toInt() ?? 0,
-      title: map['title'] ?? '',
-      description: map['description'] ?? '',
-      sku: map['sku'] ?? '',
-      price: map['price']?.toDouble() ?? 0.0,
-      brand: map['brand'],
-      category: map['category'] ?? '',
-      thumbnail: map['thumbnail'] ?? '',
-      images: List<String>.from(map['images']),
-      reviews: List<ReviewDomain>.from(map['reviews']?.map((x) => ReviewDomain.fromJson(x))),
-    );
-  }
-
-  String toJson() => json.encode(toMap());
+  factory ProductDomain.fromJson(Map<String, dynamic> json) => _$ProductDomainFromJson(json);
+  
 }
 
 /**

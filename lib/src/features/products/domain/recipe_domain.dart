@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'recipe_domain.g.dart';
+
+@JsonSerializable(createToJson: false)
 class RecipeDomain {
   final int id;
   final String name;
@@ -35,6 +40,7 @@ class RecipeDomain {
     required this.reviewCount,
   });
 
+  factory RecipeDomain.fromJson(Map<String, dynamic> json) => _$RecipeDomainFromJson(json);
 }
 
 /**
