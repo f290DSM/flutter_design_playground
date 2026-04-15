@@ -1,8 +1,5 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'dart:convert';
 
-part 'recipe_domain.g.dart';
-
-@JsonSerializable(createToJson: false)
 class RecipeDomain {
   final int id;
   final String name;
@@ -40,7 +37,51 @@ class RecipeDomain {
     required this.reviewCount,
   });
 
-  factory RecipeDomain.fromJson(Map<String, dynamic> json) => _$RecipeDomainFromJson(json);
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'ingredients': ingredients,
+      'instructions': instructions,
+      'tags': tags,
+      'mealType': mealType,
+      'prepTimeMinutes': prepTimeMinutes,
+      'cookTimeMinutes': cookTimeMinutes,
+      'intservings': intservings,
+      'difficulty': difficulty,
+      'cuisine': cuisine,
+      'caloriesPerServing': caloriesPerServing,
+      'userId': userId,
+      'image': image,
+      'rating': rating,
+      'reviewCount': reviewCount,
+    };
+  }
+
+  factory RecipeDomain.fromJson(Map<String, dynamic> map) {
+    return RecipeDomain(
+      id: map['id']?.toInt() ?? 0,
+      name: map['name'] ?? '',
+      ingredients: List<String>.from(map['ingredients']),
+      instructions: List<String>.from(map['instructions']),
+      tags: List<String>.from(map['tags']),
+      mealType: List<String>.from(map['mealType']),
+      prepTimeMinutes: map['prepTimeMinutes']?.toInt() ?? 0,
+      cookTimeMinutes: map['cookTimeMinutes']?.toInt() ?? 0,
+      intservings: map['intservings']?.toInt() ?? 0,
+      difficulty: map['difficulty']?.toInt() ?? 0,
+      cuisine: map['cuisine'] ?? '',
+      caloriesPerServing: map['caloriesPerServing']?.toInt() ?? 0,
+      userId: map['userId']?.toInt() ?? 0,
+      image: map['image'] ?? '',
+      rating: map['rating']?.toInt() ?? 0,
+      reviewCount: map['reviewCount']?.toInt() ?? 0,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
 }
 
 /**

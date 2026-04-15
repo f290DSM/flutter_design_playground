@@ -1,19 +1,22 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter_design_playground/src/features/products/domain/entities/product_domain.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class ProductCategoryPage extends StatelessWidget {
+import '../../../core/providers/app_providers.dart';
+part 'products_categories_page.g.dart';
+
+class ProductCategoryPage extends ConsumerWidget {
   const ProductCategoryPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(title: Text('Categorias de Produtos')),
       body: FutureBuilder(
-        future: http.get(
-          Uri.parse('https://dummyjson.com/products/categories'),
-        ),
+        future: ref.watch(dioProvider).get('/products/categories'),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
@@ -27,8 +30,8 @@ class ProductCategoryPage extends StatelessWidget {
             return Center(child: Text('Nenhuma categoria encontrada'));
           }
 
-          final data = snapshot.data!;
-          final json = jsonDecode(data.body) as List;
+          final json = snapshot.data!.data!;
+          // final json = jsonDecode(data.data);
           return GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
@@ -63,4 +66,11 @@ class ProductCategoryPage extends StatelessWidget {
       ),
     );
   }
+}
+
+
+@riverpod
+FutureOr<List<ProductDomain>> productsCategories(Ref ref) async {
+  final response = await ref.watch(dioProvider).get('/products/categories');
+  return [for (final categoria in response.data!) ProductDomain.fromJson(categoria)];
 }
