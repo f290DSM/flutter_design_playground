@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_design_playground/src/domain/product_domain.dart';
+import 'package:flutter_design_playground/src/features/products/domain/product_domain.dart';
 
 class ProductDetail extends StatelessWidget {
   const ProductDetail({super.key});

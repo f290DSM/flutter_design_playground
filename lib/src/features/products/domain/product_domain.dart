@@ -1,4 +1,4 @@
-import 'package:flutter_design_playground/src/domain/review_domain.dart';
+import 'package:flutter_design_playground/src/features/products/domain/review_domain.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'product_domain.g.dart';
