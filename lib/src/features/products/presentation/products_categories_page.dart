@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_design_playground/src/features/products/domain/entities/category_domain.dart';
+import 'package:flutter_design_playground/src/features/products/presentation/providers/categories_provider.dart';
 import 'package:flutter_design_playground/src/features/products/presentation/widgets/list_category_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:loading_indicator/loading_indicator.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../../core/providers/app_providers.dart';
 
 class ProductCategoryPage extends ConsumerWidget {
   const ProductCategoryPage({super.key});
