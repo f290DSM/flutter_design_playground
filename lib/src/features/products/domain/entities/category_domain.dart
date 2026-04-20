@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class CategoryDomain {
   final String slug;
   final String name;
